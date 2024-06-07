@@ -1,0 +1,31 @@
+#Calcular el indice de masa corporal (IMC)
+
+print("Calcular el indice de masa corporal")
+def calcular_imc(peso, altura):
+    imc = peso / (altura ** 2)
+    return imc
+  
+while True:
+    print("¿Desea calcular su peso en kilogramos o libras?")
+    unidad = input("Ingrese 'k' para kilogramos o 'l' para libras: ").lower()
+
+    if unidad == 'k':
+        peso = float(input("Ingrese su peso en kilogramos: "))
+        altura = float(input("Ingrese su altura en metros: "))
+        imc = calcular_imc(peso, altura)
+        print("Su índice de masa corporal es de:", imc)
+
+    elif unidad == 'l':
+        peso = float(input("Ingrese su peso en libras: "))
+        altura = float(input("Ingrese su altura en metros: "))
+        libras_a_kilogramos = 0.453592
+        peso_en_kilogramos = peso * libras_a_kilogramos
+        imc = calcular_imc(peso_en_kilogramos, altura)
+        print("Su índice de masa corporal es de:", imc)
+
+    else:
+        print("Entrada no válida. Por favor, ingrese 'kilogramos' o 'libras'.")
+
+    continuar = input("¿Deseas calcular otro IMC? (s/n): ").lower()
+    if continuar != 'si':
+        break
